@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="67">
+    <author>Achimobil</author>
+    <version>0.1.0.0</version>
+    <title>
+        <de>RopaStorage</de>
+        <en>RopaStorage</en>
+    </title>
+    <description>
+        <de>
+            <![CDATA[RopaStorage]]>
+        </de>
+        <en>
+            <![CDATA[RopaStorage]]>
+        </en>
+    </description>
+    <multiplayer supported="true"/>
+    <iconFilename>icon.dds</iconFilename>
+    <storeItems>
+        <storeItem xmlFilename="RopaStorage.xml"/>
+    </storeItems>
+    <brands>
+        <brand name="FARMERTOOLS" title="Farmer Tools" image="store/FarmerTools.dds"/>
+    </brands>
+
+    <placeableSpecializations>
+        <specialization name="dynamicMountAttacher" className="DynamicMountAttacherPlacable" filename="scripts/DynamicMountAttacher.lua"/>
+    </placeableSpecializations>
+    
+    <placeableTypes>
+        <type name="ropaStorageType" parent="simplePlaceable" filename="$dataS/scripts/placeables/Placeable.lua">
+            <specialization name="dynamicMountAttacher" />
+        </type>
+    </placeableTypes>
+    
+    <!-- <l10n> -->
+        <!-- <text name="ropaStorage"> -->
+            <!-- <de>Universal Anzeige</de>  -->
+            <!-- <en>Universal Display</en> -->
+        <!-- </text> -->
+        <!-- <text name="function_ropaStorage">  -->
+            <!-- <de>Digitalanzeige für die nächste Produktion oder das Lager. Zeigt alle Inhalte alphabetisch (lua) sortiert an. Automatische Paging bei vielen Inhalten.</de> -->
+            <!-- <en>Digital display for the next production or warehouse. Displays all content sorted alphabetically (lua). Automatic paging when there is a lot of content.</en> -->
+        <!-- </text> -->
+    <!-- </l10n> -->
+</modDesc>

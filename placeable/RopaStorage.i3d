@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="RopaStorageBase" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.3"/>
+  </Asset>
+
+  <Files>
+    <File fileId="2" filename="../sourceModels/RopaStorageBase.i3d"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="default" materialId="283" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+    <Material name="UnnamedMaterial" materialId="284" diffuseColor="1 1 1 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="RopaStorage.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <TransformGroup name="visual" nodeId="291">
+        <Shape shapeId="1" name="Base" translation="0 -0.099 4.32743e-09" rotation="-6.83019e-06 -0 0" referenceId="2" nodeId="297" materialIds="283">
+          <Shape shapeId="2" name="Connector" translation="-0.967815 0.55 -2.40413e-08" rotation="-6.83019e-06 -0 0" kinematic="true" nodeId="298" materialIds="283">
+            <TransformGroup name="cutterLockNode" translation="0.967815 -0.441 1.92767e-08" rotation="-4.32571e-06 -90 0" nodeId="299"/>
+            <Shape shapeId="3" name="dynamicMountAttacher" translation="0.0816844 0.583005 -2.54839e-08" rotation="-6.83019e-06 -0 0" kinematic="true" compound="true" trigger="true" collisionMask="18874368" nodeId="300" materialIds="283" nonRenderable="true"/>
+            <Shape shapeId="4" name="einlage1" translation="2.38397 0.377528 2.24484" rotation="-6.83019e-06 -0 0" nodeId="301" materialIds="283">
+              <Shape shapeId="4" name="einlage2" translation="0 -1.97471e-07 -4.51762" rotation="-6.83019e-06 -0 0" nodeId="302" materialIds="283"/>
+            </Shape>
+          </Shape>
+        </Shape>
+      </TransformGroup>
+      <TransformGroup name="trigger" nodeId="303">
+        <Shape shapeId="5" name="moveTrigger" translation="2.97776 0 4.29183" scale="5 3 5" static="true" trigger="true" collisionMask="1048576" nodeId="304" materialIds="284" nonRenderable="true" distanceBlending="false"/>
+      </TransformGroup>
+  </Scene>
+
+</i3D>

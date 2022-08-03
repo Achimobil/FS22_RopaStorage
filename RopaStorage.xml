@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="ropaStorageType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>$l10n_ropaStorage</name>
+        <functions>
+            <function>$l10n_function_ropaStorage</function>
+        </functions>
+        <image>store/RopaStorage.dds</image>
+        <price>5000</price>
+        <lifetime>1000</lifetime>
+        <dailyUpkeep>5</dailyUpkeep>
+        <rotation>0</rotation>
+        <brand>FARMERTOOLS</brand>
+        <species>placeable</species>
+        <category>misc</category>
+        <brush>
+            <type>placeable</type>
+            <category>buildings</category>
+            <tab>tools</tab>
+        </brush>
+    </storeData>
+    
+    <base>
+        <filename>placeable/RopaStorage.i3d</filename>
+        <canBeRenamed>true</canBeRenamed>
+    </base>
+    
+    <!-- <bigDisplays> -->
+        <!-- <bigDisplay upperLeftNode="0>1|0" height="2.1" width="1.85" size="0.11" color="0 0.9 0 1"></bigDisplay> -->
+    <!-- </bigDisplays> -->
+    
+    <clearAreas />
+    
+    <leveling requireLeveling="false" />
+	
+    <indoorAreas />
+	
+    <ai>
+        <updateAreas />
+    </ai>
+  
+    <!-- <animatedObjects>		 -->
+        <!-- <animatedObject saveId="mySaveId" > -->
+            <!-- <animation duration="4"> -->
+                <!-- <part node="Connector">  -->
+                    <!-- <Keyframe time="0.0" translation="-0.968 0.55 0" rotation="0 0 0"/> -->
+                    <!-- <Keyframe time="1.0" translation="-0.968 6 0" rotation="0 0 180"/> -->
+                <!-- </part> -->
+            <!-- </animation> -->
+            <!-- <controls triggerNode="moveTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" /> -->
+            <!-- <sounds> -->
+                <!-- <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/> -->
+            <!-- </sounds> -->
+        <!-- </animatedObject> -->
+    <!-- </animatedObjects> -->
+
+    <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher" rootNode="Connector" jointNode="Connector" forceAcceleration="5000" mountType="TYPE_FIX_ATTACH" transferMass="true">
+        <animation name="attachCutter" speed="1"/>
+        <lockPosition xmlFilename="$data/vehicles/ropa/rrXL9/rrXL9.xml" jointNode="cutterLockNode"/>
+    </dynamicMountAttacherPlacable>
+    
+    <!-- <infoTrigger triggerNode="1>0" /> -->
+    <i3dMappings>
+        <i3dMapping id="dynamicMountAttacher" node="0>0|0|1" />
+        <i3dMapping id="Connector" node="0>0|0" />
+        <i3dMapping id="cutterLockNode" node="0>0|0|0" />
+        <i3dMapping id="moveTrigger" node="1>0" />
+    </i3dMappings>
+</placeable>

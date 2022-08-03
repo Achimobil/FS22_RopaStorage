@@ -39,20 +39,20 @@
         <updateAreas />
     </ai>
   
-    <!-- <animatedObjects>		 -->
-        <!-- <animatedObject saveId="mySaveId" > -->
-            <!-- <animation duration="4"> -->
-                <!-- <part node="Connector">  -->
-                    <!-- <Keyframe time="0.0" translation="-0.968 0.55 0" rotation="0 0 0"/> -->
-                    <!-- <Keyframe time="1.0" translation="-0.968 6 0" rotation="0 0 180"/> -->
-                <!-- </part> -->
-            <!-- </animation> -->
-            <!-- <controls triggerNode="moveTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" /> -->
-            <!-- <sounds> -->
-                <!-- <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/> -->
-            <!-- </sounds> -->
-        <!-- </animatedObject> -->
-    <!-- </animatedObjects> -->
+    <animatedObjects>		
+        <animatedObject saveId="mySaveId" >
+            <animation duration="4">
+                <part node="Connector"> 
+                    <Keyframe time="0.0" translation="0.404 0.228 -0.014" rotation="0 0 0"/>
+                    <Keyframe time="1.0" translation="0.404 6.228 -0.014" rotation="0 0 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="moveTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+            <sounds>
+                <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
+            </sounds>
+        </animatedObject>
+    </animatedObjects>
 
     <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher" rootNode="Connector" jointNode="Connector" forceAcceleration="5000" mountType="TYPE_FIX_ATTACH" transferMass="true">
         <animation name="attachCutter" speed="1"/>
@@ -61,9 +61,9 @@
     
     <!-- <infoTrigger triggerNode="1>0" /> -->
     <i3dMappings>
-        <i3dMapping id="dynamicMountAttacher" node="0>0|0|1" />
+        <i3dMapping id="dynamicMountAttacher" node="0>0|0|3" />
         <i3dMapping id="Connector" node="0>0|0" />
-        <i3dMapping id="cutterLockNode" node="0>0|0|0" />
+        <i3dMapping id="cutterLockNode" node="0>0|0|2" />
         <i3dMapping id="moveTrigger" node="1>0" />
     </i3dMappings>
 </placeable>

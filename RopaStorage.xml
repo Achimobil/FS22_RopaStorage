@@ -40,21 +40,54 @@
     </ai>
   
     <animatedObjects>		
-        <animatedObject saveId="mySaveId" >
+        <animatedObject saveId="Connector1SaveId" >
+            <dependency animatedObjectIndex="2" minTime="0" maxTime="0" />
+            <dependency animatedObjectIndex="3" minTime="0" maxTime="0" />
             <animation duration="4">
-                <part node="Connector"> 
-                    <Keyframe time="0.0" translation="0.404 0.228 -0.014" rotation="0 0 0"/>
-                    <Keyframe time="1.0" translation="0.404 6.228 -0.014" rotation="0 0 0"/>
+                <part node="Connector1"> 
+                    <Keyframe time="0.0" translation="-1.3 1.1 0" rotation="0 0 0"/>
+                    <Keyframe time="0.5" translation="2.5 1.1 0" rotation="0 0 0"/>
+                    <Keyframe time="1.0" translation="2.5 0.2 0" rotation="0 0 0"/>
                 </part>
             </animation>
-            <controls triggerNode="moveTrigger" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+            <controls triggerNode="moveTrigger1" posAction="ACTIVATE_HANDTOOL" posText="action_armOut" negText="action_armIn" />
+            <sounds>
+                <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
+            </sounds>
+        </animatedObject>
+        <animatedObject saveId="Connector2SaveId" >
+            <dependency animatedObjectIndex="1" minTime="0" maxTime="0" />
+            <dependency animatedObjectIndex="3" minTime="0" maxTime="0" />
+            <animation duration="4">
+                <part node="Connector2"> 
+                    <Keyframe time="0.0" translation="-1.3 4.6 0" rotation="0 0 0"/>
+                    <Keyframe time="0.5" translation="2.5 4.6 0" rotation="0 0 0"/>
+                    <Keyframe time="1.0" translation="2.5 0.2 0" rotation="0 0 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="moveTrigger2" posAction="ACTIVATE_HANDTOOL" posText="action_armOut" negText="action_armIn" />
+            <sounds>
+                <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
+            </sounds>
+        </animatedObject>
+        <animatedObject saveId="Connector3SaveId" >
+            <dependency animatedObjectIndex="1" minTime="0" maxTime="0" />
+            <dependency animatedObjectIndex="2" minTime="0" maxTime="0" />
+            <animation duration="4">
+                <part node="Connector3"> 
+                    <Keyframe time="0.0" translation="-1.3 8.1 0" rotation="0 0 0"/>
+                    <Keyframe time="0.5" translation="2.5 8.1 0" rotation="0 0 0"/>
+                    <Keyframe time="1.0" translation="2.5 0.2 0" rotation="0 0 0"/>
+                </part>
+            </animation>
+            <controls triggerNode="moveTrigger3" posAction="ACTIVATE_HANDTOOL" posText="action_armOut" negText="action_armIn" />
             <sounds>
                 <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
             </sounds>
         </animatedObject>
     </animatedObjects>
 
-    <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher" rootNode="Connector" jointNode="Connector" forceAcceleration="5000" mountType="TYPE_FIX_ATTACH" transferMass="true">
+    <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher" rootNode="Connector1" jointNode="Connector1" forceAcceleration="5000" mountType="TYPE_FIX_ATTACH" transferMass="true">
         <animation name="attachCutter" speed="1"/>
         <lockPosition xmlFilename="$data/vehicles/ropa/rrXL9/rrXL9.xml" jointNode="cutterLockNode"/>
     </dynamicMountAttacherPlacable>
@@ -62,8 +95,12 @@
     <!-- <infoTrigger triggerNode="1>0" /> -->
     <i3dMappings>
         <i3dMapping id="dynamicMountAttacher" node="0>0|0|3" />
-        <i3dMapping id="Connector" node="0>0|0" />
+        <i3dMapping id="Connector1" node="0>0|0" />
+        <i3dMapping id="Connector2" node="0>0|1" />
+        <i3dMapping id="Connector3" node="0>0|2" />
         <i3dMapping id="cutterLockNode" node="0>0|0|2" />
-        <i3dMapping id="moveTrigger" node="1>0" />
+        <i3dMapping id="moveTrigger1" node="1>0" />
+        <i3dMapping id="moveTrigger2" node="1>1" />
+        <i3dMapping id="moveTrigger3" node="1>2" />
     </i3dMappings>
 </placeable>

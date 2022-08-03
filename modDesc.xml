@@ -33,14 +33,14 @@
         </type>
     </placeableTypes>
     
-    <!-- <l10n> -->
-        <!-- <text name="ropaStorage"> -->
-            <!-- <de>Universal Anzeige</de>  -->
-            <!-- <en>Universal Display</en> -->
-        <!-- </text> -->
-        <!-- <text name="function_ropaStorage">  -->
-            <!-- <de>Digitalanzeige für die nächste Produktion oder das Lager. Zeigt alle Inhalte alphabetisch (lua) sortiert an. Automatische Paging bei vielen Inhalten.</de> -->
-            <!-- <en>Digital display for the next production or warehouse. Displays all content sorted alphabetically (lua). Automatic paging when there is a lot of content.</en> -->
-        <!-- </text> -->
-    <!-- </l10n> -->
+    <l10n>
+        <text name="ropaStorage">
+            <de>Ropa Schneidwerkslager</de> 
+            <en>Ropa Storage</en>
+        </text>
+        <text name="function_ropaStorage"> 
+            <de>Ein Lager für Ropa Schneidwerke</de>
+            <en>A Storage for Ropa Cutter</en>
+        </text>
+    </l10n>
 </modDesc>

@@ -11,9 +11,9 @@
 
 
   <Materials>
-    <Material name="default" materialId="583" diffuseColor="0.494118 0.494118 0.494118 1">
+    <Material name="default" materialId="1413" diffuseColor="0.494118 0.494118 0.494118 1">
     </Material>
-    <Material name="UnnamedMaterial" materialId="584" diffuseColor="1 1 1 1">
+    <Material name="UnnamedMaterial" materialId="1414" diffuseColor="1 1 1 1">
     </Material>
   </Materials>
 
@@ -26,36 +26,86 @@
   </Dynamics>
 
   <Scene>
-      <TransformGroup name="visual" nodeId="598">
-        <Shape shapeId="1" name="Base" translation="0 -0.099 4.32743e-09" rotation="-6.83019e-06 -0 0" referenceId="2" nodeId="611" materialIds="583">
-          <Shape shapeId="2" name="Connector" translation="0.404377 0.228056 -0.0139651" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="612" materialIds="583">
-            <Shape shapeId="3" name="Connector.001" translation="0.992611 -0.001 4.37115e-11" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="613" materialIds="583"/>
-            <TransformGroup name="bodengestell" translation="-0.404377 -0.129056 0.0139651" rotation="-6.83019e-06 -0 0" nodeId="614">
-              <Shape shapeId="4" name="Querstange" translation="0.500274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="615" materialIds="583"/>
-              <Shape shapeId="4" name="Querstange.001" translation="0.650274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="616" materialIds="583"/>
-              <Shape shapeId="4" name="Querstange.002" translation="0.800274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="617" materialIds="583"/>
-              <Shape shapeId="4" name="Querstange.003" translation="0.950274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="618" materialIds="583"/>
-              <Shape shapeId="4" name="Querstange.004" translation="1.10027 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="619" materialIds="583"/>
-              <Shape shapeId="4" name="Querstange.005" translation="1.25027 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="620" materialIds="583"/>
-              <Shape shapeId="5" name="Seitenstange" translation="1.05085 0.129056 2.26984" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="621" materialIds="583"/>
-              <Shape shapeId="5" name="Seitenstange.001" translation="1.05085 0.129056 -2.24777" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="622" materialIds="583"/>
-              <Shape shapeId="6" name="Seitenstange.002" translation="1.48506 0.6613 2.24484" rotation="-6.83019e-06 -0 0" nodeId="623" materialIds="583"/>
-              <Shape shapeId="7" name="Seitenstange.003" translation="1.42199 0.334064 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="624" materialIds="583"/>
-              <Shape shapeId="8" name="Seitenstange.004" translation="1.35309 0.6613 2.24484" rotation="-1.82123e-06 -180 -2.18948e-13" nodeId="625" materialIds="583"/>
-              <Shape shapeId="6" name="Seitenstange.005" translation="1.48506 0.6613 -2.27277" rotation="-6.83019e-06 -0 0" nodeId="626" materialIds="583"/>
-              <Shape shapeId="7" name="Seitenstange.006" translation="1.42199 0.334064 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="627" materialIds="583"/>
-              <Shape shapeId="8" name="Seitenstange.007" translation="1.35309 0.6613 -2.27277" rotation="-1.82123e-06 -180 -2.18948e-13" nodeId="628" materialIds="583"/>
+      <TransformGroup name="visual" nodeId="1428">
+        <Shape shapeId="1" name="Base" translation="0 -0.099 4.32743e-09" rotation="-6.83019e-06 -0 0" referenceId="2" static="true" nodeId="1441" materialIds="1413" castsShadows="true" receiveShadows="true">
+          <Shape shapeId="2" name="Connector1" translation="-1.3 1.1 -4.80825e-08" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1442" materialIds="1413" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="3" name="Connector.001" translation="0.992611 -0.00100005 4.37134e-11" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1443" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="bodengestell" translation="-0.404377 -0.129056 0.0139651" rotation="-6.83019e-06 -0 0" nodeId="1444">
+              <Shape shapeId="4" name="Querstange" translation="0.500274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1445" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.001" translation="0.650274 0.129056 0" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1446" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.002" translation="0.800274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1447" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.003" translation="0.950274 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1448" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.004" translation="1.10027 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1449" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.005" translation="1.25027 0.129056 -5.64121e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1450" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="5" name="Seitenstange" translation="1.05085 0.129056 2.26984" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1451" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="5" name="Seitenstange.001" translation="1.05085 0.129056 -2.24777" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1452" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="Seitenstange.002" translation="1.48506 0.6613 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1453" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="7" name="Seitenstange.003" translation="1.42199 0.334064 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1454" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="8" name="Seitenstange.004" translation="1.35309 0.6613 2.24484" rotation="-1.82123e-06 -180 -2.18948e-13" kinematic="true" collisionMask="2109442" nodeId="1455" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="Seitenstange.005" translation="1.48506 0.6613 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1456" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="7" name="Seitenstange.006" translation="1.42199 0.334064 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1457" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="8" name="Seitenstange.007" translation="1.35309 0.6613 -2.27277" rotation="-1.82123e-06 -180 -2.18948e-13" kinematic="true" collisionMask="2109442" nodeId="1458" materialIds="1413" castsShadows="true" receiveShadows="true"/>
             </TransformGroup>
-            <TransformGroup name="cutterLockNode" translation="-0.404377 -0.119056 0.0139651" rotation="-4.32571e-06 -90 0" nodeId="629"/>
-            <Shape shapeId="9" name="dynamicMountAttacher" translation="-0.775197 0.904949 0.0139651" rotation="-6.83019e-06 -0 0" kinematic="true" compound="true" trigger="true" collisionMask="18874368" nodeId="630" materialIds="583" nonRenderable="true"/>
-            <Shape shapeId="10" name="einlage1" translation="1.01178 0.699473 2.25881" rotation="-6.83019e-06 -0 0" nodeId="631" materialIds="583">
-              <Shape shapeId="11" name="einlage2" translation="0 -1.97471e-07 -4.51762" rotation="-6.83019e-06 -0 0" nodeId="632" materialIds="583"/>
+            <TransformGroup name="cutterLockNode" translation="-0.404377 -0.119056 0.0139651" rotation="-4.32571e-06 -90 0" nodeId="1459"/>
+            <Shape shapeId="9" name="dynamicMountAttacher" translation="-0.775197 0.904949 0.0139651" rotation="-6.83019e-06 -0 0" kinematic="true" compound="true" trigger="true" collisionMask="18874368" nodeId="1460" materialIds="1413" nonRenderable="true"/>
+            <Shape shapeId="10" name="einlage1" translation="1.01178 0.699473 2.25881" rotation="-6.83019e-06 -0 0" nodeId="1461" materialIds="1413">
+              <Shape shapeId="11" name="einlage2" translation="0 -1.97471e-07 -4.51762" rotation="-6.83019e-06 -0 0" nodeId="1462" materialIds="1413"/>
+            </Shape>
+          </Shape>
+          <Shape shapeId="2" name="Connector2" translation="-1.3 4.6 -2.01072e-07" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1463" materialIds="1413" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="3" name="Connector.002" translation="0.992611 -0.0010004 4.37291e-11" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1464" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="bodengestell.001" translation="-0.404377 -0.129056 0.0139651" rotation="-6.83019e-06 -0 0" nodeId="1465">
+              <Shape shapeId="4" name="Querstange.006" translation="0.500274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1466" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.007" translation="0.650274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1467" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.008" translation="0.800274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1468" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.009" translation="0.950274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1469" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.010" translation="1.10027 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1470" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.011" translation="1.25027 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" nodeId="1471" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="5" name="Seitenstange.008" translation="1.05085 0.129056 2.26984" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1472" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="5" name="Seitenstange.009" translation="1.05085 0.129056 -2.24777" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1473" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="Seitenstange.010" translation="1.48506 0.6613 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1474" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="7" name="Seitenstange.011" translation="1.42199 0.334064 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1475" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="8" name="Seitenstange.012" translation="1.35309 0.6613 2.24484" rotation="-1.82123e-06 -180 -2.18948e-13" kinematic="true" collisionMask="2109442" nodeId="1476" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="Seitenstange.013" translation="1.48506 0.6613 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1477" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="7" name="Seitenstange.014" translation="1.42199 0.334063 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1478" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="8" name="Seitenstange.015" translation="1.35309 0.6613 -2.27277" rotation="-1.82123e-06 -180 -2.18948e-13" kinematic="true" collisionMask="2109442" nodeId="1479" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <TransformGroup name="cutterLockNode.001" translation="-0.404377 -0.119056 0.0139651" rotation="-4.32571e-06 -90 0" nodeId="1480"/>
+            <Shape shapeId="9" name="dynamicMountAttacher.001" translation="-0.775197 0.904949 0.0139651" rotation="-6.83019e-06 -0 0" kinematic="true" compound="true" trigger="true" collisionMask="18874368" nodeId="1481" materialIds="1413" nonRenderable="true"/>
+            <Shape shapeId="10" name="einlage1.001" translation="1.01178 0.699473 2.25881" rotation="-6.83019e-06 -0 0" nodeId="1482" materialIds="1413">
+              <Shape shapeId="11" name="einlage2.001" translation="0 -1.97471e-07 -4.51762" rotation="-6.83019e-06 -0 0" nodeId="1483" materialIds="1413"/>
+            </Shape>
+          </Shape>
+          <Shape shapeId="2" name="Connector3" translation="-1.3 8.1 -3.54062e-07" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1484" materialIds="1413" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="3" name="Connector.003" translation="0.992611 -0.0010004 4.37291e-11" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1485" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+            <TransformGroup name="bodengestell.002" translation="-0.404377 -0.129056 0.0139651" rotation="-6.83019e-06 -0 0" nodeId="1486">
+              <Shape shapeId="4" name="Querstange.012" translation="0.500274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1487" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.013" translation="0.650274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1488" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.014" translation="0.800274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1489" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.015" translation="0.950274 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1490" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.016" translation="1.10027 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1491" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="4" name="Querstange.017" translation="1.25027 0.129056 -5.64122e-09" rotation="90 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="1492" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="5" name="Seitenstange.016" translation="1.05085 0.129056 2.26984" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1493" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="5" name="Seitenstange.017" translation="1.05085 0.129056 -2.24777" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1494" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="Seitenstange.018" translation="1.48506 0.6613 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1495" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="7" name="Seitenstange.019" translation="1.42199 0.334064 2.24484" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1496" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="8" name="Seitenstange.020" translation="1.35309 0.6613 2.24484" rotation="-1.82123e-06 -180 -2.18948e-13" kinematic="true" collisionMask="2109442" nodeId="1497" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="6" name="Seitenstange.021" translation="1.48506 0.6613 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1498" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="7" name="Seitenstange.022" translation="1.42199 0.334063 -2.27277" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1499" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="8" name="Seitenstange.023" translation="1.35309 0.6613 -2.27277" rotation="-1.82123e-06 -180 -2.18948e-13" kinematic="true" collisionMask="2109442" nodeId="1500" materialIds="1413" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <TransformGroup name="cutterLockNode.002" translation="-0.404377 -0.119056 0.0139651" rotation="-4.32571e-06 -90 0" nodeId="1501"/>
+            <Shape shapeId="9" name="dynamicMountAttacher.002" translation="-0.775197 0.904949 0.0139651" rotation="-6.83019e-06 -0 0" kinematic="true" compound="true" trigger="true" collisionMask="18874368" nodeId="1502" materialIds="1413" nonRenderable="true"/>
+            <Shape shapeId="10" name="einlage1.002" translation="1.01178 0.699473 2.25881" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1503" materialIds="1413" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="11" name="einlage2.002" translation="0 -1.97471e-07 -4.51762" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" nodeId="1504" materialIds="1413" castsShadows="true" receiveShadows="true"/>
             </Shape>
           </Shape>
         </Shape>
       </TransformGroup>
-      <TransformGroup name="trigger" nodeId="633">
-        <Shape shapeId="12" name="moveTrigger" translation="2.97776 0 4.29183" scale="5 3 5" static="true" trigger="true" collisionMask="1048576" nodeId="634" materialIds="584" nonRenderable="true" distanceBlending="false"/>
+      <TransformGroup name="trigger" nodeId="1505">
+        <Shape shapeId="12" name="moveTrigger1" translation="3 2 5" static="true" trigger="true" collisionMask="1048576" nodeId="1506" materialIds="1414" distanceBlending="false"/>
+        <Shape shapeId="12" name="moveTrigger2" translation="3 2 6.5" static="true" trigger="true" collisionMask="1048576" nodeId="1507" materialIds="1414" distanceBlending="false"/>
+        <Shape shapeId="12" name="moveTrigger3" translation="3 2 8" static="true" trigger="true" collisionMask="1048576" nodeId="1508" materialIds="1414" distanceBlending="false"/>
       </TransformGroup>
   </Scene>
 

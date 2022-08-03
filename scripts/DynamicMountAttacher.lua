@@ -27,8 +27,6 @@ DynamicMountAttacherPlacable = {
 		schema:register(XMLValueType.STRING, "placeable.dynamicMountAttacherPlacable.lockPosition(?)#xmlFilename", "XML filename of vehicle to lock (needs to match only the end of the filename)")
 		schema:register(XMLValueType.NODE_INDEX, "placeable.dynamicMountAttacherPlacable.lockPosition(?)#jointNode", "Joint node (Representens the position of the other vehicles root node)")
 		ObjectChangeUtil.registerObjectChangeXMLPaths(schema, "placeable.dynamicMountAttacherPlacable.lockPosition(?)")
-		schema:register(XMLValueType.STRING, "placeable.dynamicMountAttacherPlacable.animation#name", "Animation name")
-		schema:register(XMLValueType.FLOAT, "placeable.dynamicMountAttacherPlacable.animation#speed", "Animation speed", 1)
 		schema:register(XMLValueType.BOOL, Cylindered.MOVING_TOOL_XML_KEY .. ".dynamicMountAttacherPlacable#value", "Update dynamic mount attacher joints")
 		schema:register(XMLValueType.BOOL, Cylindered.MOVING_PART_XML_KEY .. ".dynamicMountAttacherPlacable#value", "Update dynamic mount attacher joints")
 		schema:setXMLSpecializationType()
@@ -43,7 +41,6 @@ function DynamicMountAttacherPlacable.registerFunctions(placeableType)
 	SpecializationUtil.registerFunction(placeableType, "lockDynamicMountedObject", DynamicMountAttacherPlacable.lockDynamicMountedObject)
 	SpecializationUtil.registerFunction(placeableType, "addDynamicMountedObject", DynamicMountAttacherPlacable.addDynamicMountedObject)
 	SpecializationUtil.registerFunction(placeableType, "removeDynamicMountedObject", DynamicMountAttacherPlacable.removeDynamicMountedObject)
-	SpecializationUtil.registerFunction(placeableType, "setDynamicMountAnimationState", DynamicMountAttacherPlacable.setDynamicMountAnimationState)
 	SpecializationUtil.registerFunction(placeableType, "getAllowDynamicMountFillLevelInfo", DynamicMountAttacherPlacable.getAllowDynamicMountFillLevelInfo)
 	SpecializationUtil.registerFunction(placeableType, "loadDynamicMountGrabFromXML", DynamicMountAttacherPlacable.loadDynamicMountGrabFromXML)
 	SpecializationUtil.registerFunction(placeableType, "getIsDynamicMountGrabOpened", DynamicMountAttacherPlacable.getIsDynamicMountGrabOpened)
@@ -61,7 +58,6 @@ function DynamicMountAttacherPlacable.registerOverwrittenFunctions(placeableType
 	SpecializationUtil.registerOverwrittenFunction(placeableType, "loadExtraDependentParts", DynamicMountAttacherPlacable.loadExtraDependentParts)
 	SpecializationUtil.registerOverwrittenFunction(placeableType, "updateExtraDependentParts", DynamicMountAttacherPlacable.updateExtraDependentParts)
 	SpecializationUtil.registerOverwrittenFunction(placeableType, "getIsAttachedTo", DynamicMountAttacherPlacable.getIsAttachedTo)
-	SpecializationUtil.registerOverwrittenFunction(placeableType, "getAdditionalComponentMass", DynamicMountAttacherPlacable.getAdditionalComponentMass)
 end
 
 function DynamicMountAttacherPlacable.registerEventListeners(placeableType)
@@ -159,13 +155,6 @@ function DynamicMountAttacherPlacable:onLoad(savegame)
 		end)
 	end
 
-	spec.animationName = self.xmlFile:getValue("placeable.dynamicMountAttacherPlacable.animation#name")
-	spec.animationSpeed = self.xmlFile:getValue("placeable.dynamicMountAttacherPlacable.animation#speed", 1)
-
-	if spec.animationName ~= nil then
-		-- self:playAnimation(spec.animationName, spec.animationSpeed, self:getAnimationTime(spec.animationName), true)
-	end
-
 	spec.dynamicMountedObjects = {}
 	spec.dynamicMountedObjectsDirtyFlag = self:getNextDirtyFlag()
 end
@@ -191,7 +180,6 @@ function DynamicMountAttacherPlacable:onReadUpdateStream(streamId, timestamp, co
 		if streamReadBool(streamId) then
 			local sum = self:readDynamicMountObjectsFromStream(streamId, spec.dynamicMountedObjects)
 
-			self:setDynamicMountAnimationState(sum > 0)
 			self:readDynamicMountObjectsFromStream(streamId, spec.pendingDynamicMountObjects)
 		end
 	end
@@ -403,12 +391,6 @@ function DynamicMountAttacherPlacable:addDynamicMountedObject(object)
 			setCollisionMask(info.node, info.mountedCollisionMask)
 		end
 
-		-- if spec.transferMass and object.setReducedComponentMass ~= nil then
-			-- object:setReducedComponentMass(true)
-			-- self:setMassDirty()
-		-- end
-
-		self:setDynamicMountAnimationState(true)
 		self:raiseDirtyFlags(spec.dynamicMountedObjectsDirtyFlag)
 	end
 end
@@ -431,22 +413,7 @@ function DynamicMountAttacherPlacable:removeDynamicMountedObject(object, isDelet
 		end
 	end
 
-	-- if spec.transferMass then
-		-- self:setMassDirty()
-	-- end
-
-	self:setDynamicMountAnimationState(false)
 	self:raiseDirtyFlags(spec.dynamicMountedObjectsDirtyFlag)
-end
-
-function DynamicMountAttacherPlacable:setDynamicMountAnimationState(state)
-	local spec = self.spec_dynamicMountAttacherPlacable
-
-	-- if state then
-		-- self:playAnimation(spec.animationName, spec.animationSpeed, self:getAnimationTime(spec.animationName), true)
-	-- else
-		-- self:playAnimation(spec.animationName, -spec.animationSpeed, self:getAnimationTime(spec.animationName), true)
-	-- end
 end
 
 function DynamicMountAttacherPlacable:writeDynamicMountObjectsToStream(streamId, objects)
@@ -492,12 +459,10 @@ function DynamicMountAttacherPlacable:getAllowDynamicMountObjects()
 end
 
 function DynamicMountAttacherPlacable:dynamicMountTriggerCallback(triggerId, otherActorId, onEnter, onLeave, onStay, otherShapeId)
-print("DynamicMountAttacherPlacable:dynamicMountTriggerCallback")
 	local spec = self.spec_dynamicMountAttacherPlacable
 
 	if getRigidBodyType(otherActorId) == RigidBodyType.DYNAMIC and not getHasTrigger(otherActorId) then
 		if onEnter then
-print("DynamicMountAttacherPlacable:onEnter")
 			local object = g_currentMission:getNodeObject(otherActorId)
 
 			if object == nil then
@@ -521,7 +486,6 @@ print("DynamicMountAttacherPlacable:onEnter")
 				end
 			end
 		elseif onLeave then
-print("DynamicMountAttacherPlacable:onLeave")
 			local object = g_currentMission:getNodeObject(otherActorId)
 
 			if object == nil then
@@ -715,21 +679,6 @@ function DynamicMountAttacherPlacable:getIsAttachedTo(superFunc, vehicle)
 	return false
 end
 
-function DynamicMountAttacherPlacable:getAdditionalComponentMass(superFunc, component)
-	local additionalMass = superFunc(self, component)
-	local spec = self.spec_dynamicMountAttacherPlacable
-
-	if spec.transferMass and spec.dynamicMountAttacherPlacableTrigger.component == component.node then
-		for object, _ in pairs(spec.dynamicMountedObjects) do
-			if object.getAllowComponentMassReduction ~= nil and object:getAllowComponentMassReduction() then
-				additionalMass = additionalMass + object:getDefaultMass() - 0.1
-			end
-		end
-	end
-
-	return additionalMass
-end
-
 function DynamicMountAttacherPlacable:onPreAttachImplement(object, inputJointDescIndex, jointDescIndex)
 	local objSpec = object.spec_dynamicMountAttacherPlacable
 
@@ -746,44 +695,5 @@ function DynamicMountAttacherPlacable:onPreAttachImplement(object, inputJointDes
 				object.additionalDynamicMountJointNode = nil
 			end
 		end
-	end
-end
-
-function DynamicMountAttacherPlacable:updateDebugValues(values)
-	local spec = self.spec_dynamicMountAttacherPlacable
-
-	if self.isServer then
-		local timeToMount = self.lastMoveTime + spec.dynamicMountAttacherPlacableTimeToMount - g_currentMission.time
-
-		table.insert(values, {
-			name = "timeToMount:",
-			value = string.format("%d", timeToMount)
-		})
-
-		for object, _ in pairs(spec.pendingDynamicMountObjects) do
-			table.insert(values, {
-				name = "pendingDynamicMountObject:",
-				value = string.format("%s timeToMount: %d", object.configFileName or object, math.max(object.lastMoveTime + spec.dynamicMountAttacherPlacableTimeToMount - g_currentMission.time, 0))
-			})
-		end
-
-		for object, _ in pairs(spec.dynamicMountedObjects) do
-			table.insert(values, {
-				name = "dynamicMountedObjects:",
-				value = string.format("%s", object.configFileName or object)
-			})
-		end
-	end
-
-	table.insert(values, {
-		name = "allowMountObjects:",
-		value = string.format("%s", self:getAllowDynamicMountObjects())
-	})
-
-	if spec.dynamicMountAttacherPlacableGrab ~= nil then
-		table.insert(values, {
-			name = "grabOpened:",
-			value = string.format("%s", self:getIsDynamicMountGrabOpened(spec.dynamicMountAttacherPlacableGrab))
-		})
 	end
 end

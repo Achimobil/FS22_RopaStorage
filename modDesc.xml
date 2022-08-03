@@ -42,5 +42,29 @@
             <de>Ein Lager für Ropa Schneidwerke</de>
             <en>A Storage for Ropa Cutter</en>
         </text>
+        <text name="rs_Connector1_open"> 
+            <de>Fach 1 ausfahren</de>
+            <en>Open Stock 1</en>
+        </text>
+        <text name="rs_Connector2_open"> 
+            <de>Fach 2 ausfahren</de>
+            <en>Open Stock 2</en>
+        </text>
+        <text name="rs_Connector3_open"> 
+            <de>Fach 3 ausfahren</de>
+            <en>Open Stock 3</en>
+        </text>
+        <text name="rs_Connector1_close"> 
+            <de>Fach 1 einfahren</de>
+            <en>Close Stock 1</en>
+        </text>
+        <text name="rs_Connector2_close"> 
+            <de>Fach 2 einfahren</de>
+            <en>Close Stock 2</en>
+        </text>
+        <text name="rs_Connector3_close"> 
+            <de>Fach 3 einfahren</de>
+            <en>Close Stock 3</en>
+        </text>
     </l10n>
 </modDesc>

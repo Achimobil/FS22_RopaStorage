@@ -22,6 +22,7 @@ DynamicMountAttacherPlacable = {
 function DynamicMountAttacherPlacable.registerFunctions(placeableType)
 	SpecializationUtil.registerFunction(placeableType, "writeDynamicMountObjectsToStream", DynamicMountAttacherPlacable.writeDynamicMountObjectsToStream)
 	SpecializationUtil.registerFunction(placeableType, "readDynamicMountObjectsFromStream", DynamicMountAttacherPlacable.readDynamicMountObjectsFromStream)
+	SpecializationUtil.registerFunction(placeableType, "readDynamicMountObjectsFromStream2", DynamicMountAttacherPlacable.readDynamicMountObjectsFromStream2)
 	SpecializationUtil.registerFunction(placeableType, "dynamicMountTriggerCallback", DynamicMountAttacherPlacable.dynamicMountTriggerCallback)
 	SpecializationUtil.registerFunction(placeableType, "lockDynamicMountedObject", DynamicMountAttacherPlacable.lockDynamicMountedObject)
 	SpecializationUtil.registerFunction(placeableType, "addDynamicMountedObject", DynamicMountAttacherPlacable.addDynamicMountedObject)
@@ -305,7 +306,7 @@ function DynamicMountAttacherPlacable:readDynamicMountObjectsFromStream2(streamI
 
     for attacherIndex, myMountAttacher in pairs(myMountAttacherList) do
         for k, _ in pairs(myMountAttacher.pendingDynamicMountObjects) do
-            objects[k] = nil
+            myMountAttacher.pendingDynamicMountObjects[k] = nil
         end
 	end
 

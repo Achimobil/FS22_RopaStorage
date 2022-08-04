@@ -50,7 +50,7 @@
                     <Keyframe time="1.0" translation="2.5 0.2 0" rotation="0 0 0"/>
                 </part>
             </animation>
-            <controls triggerNode="moveTrigger1" posAction="ACTIVATE_HANDTOOL" posText="rs_Connector1_open" negText="rs_Connector1_close" />
+            <controls triggerNode="moveTrigger1" posAction="ACTIVATE_HANDTOOL" posText="rs_Connector1_open" negText="rs_Connector1_close" autoopen="false"/>
             <sounds>
                 <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
             </sounds>
@@ -65,7 +65,7 @@
                     <Keyframe time="1.0" translation="2.5 0.2 0" rotation="0 0 0"/>
                 </part>
             </animation>
-            <controls triggerNode="moveTrigger2" posAction="ACTIVATE_HANDTOOL" posText="rs_Connector2_open" negText="rs_Connector2_close" />
+            <controls triggerNode="moveTrigger2" posAction="ACTIVATE_HANDTOOL" posText="rs_Connector2_open" negText="rs_Connector2_close"  autoopen="false"/>
             <sounds>
                 <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
             </sounds>
@@ -80,7 +80,7 @@
                     <Keyframe time="1.0" translation="2.5 0.2 0" rotation="0 0 0"/>
                 </part>
             </animation>
-            <controls triggerNode="moveTrigger3" posAction="ACTIVATE_HANDTOOL" posText="rs_Connector3_open" negText="rs_Connector3_close" />
+            <controls triggerNode="moveTrigger3" posAction="ACTIVATE_HANDTOOL" posText="rs_Connector3_open" negText="rs_Connector3_close"  autoopen="false"/>
             <sounds>
                 <moving file="$data/sounds/prefab/gate/lelyVectorLoop.ogg" loops="0" volume="110" radius="20" innerRadius="6" fadeOut="0.25"/>
             </sounds>

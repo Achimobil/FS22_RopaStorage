@@ -87,18 +87,29 @@
         </animatedObject>
     </animatedObjects>
 
-    <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher" rootNode="Connector1" jointNode="Connector1" forceAcceleration="5000" mountType="TYPE_FIX_ATTACH" transferMass="true">
-        <animation name="attachCutter" speed="1"/>
-        <lockPosition xmlFilename="$data/vehicles/ropa/rrXL9/rrXL9.xml" jointNode="cutterLockNode"/>
-    </dynamicMountAttacherPlacable>
+    <dynamicMountAttacherPlacables>
+        <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher1" rootNode="Connector1" jointNode="Connector1">
+            <lockPosition xmlFilename="rrXL9" jointNode="cutterLockNode1"/>
+        </dynamicMountAttacherPlacable>
+        <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher2" rootNode="Connector2" jointNode="Connector2">
+            <lockPosition xmlFilename="rrXL9" jointNode="cutterLockNode2"/>
+        </dynamicMountAttacherPlacable>
+        <dynamicMountAttacherPlacable triggerNode="dynamicMountAttacher3" rootNode="Connector3" jointNode="Connector3">
+            <lockPosition xmlFilename="rrXL9" jointNode="cutterLockNode3"/>
+        </dynamicMountAttacherPlacable>
+    </dynamicMountAttacherPlacables>
     
     <!-- <infoTrigger triggerNode="1>0" /> -->
     <i3dMappings>
-        <i3dMapping id="dynamicMountAttacher" node="0>0|1|0|3" />
+        <i3dMapping id="dynamicMountAttacher1" node="0>0|1|0|3" />
+        <i3dMapping id="dynamicMountAttacher2" node="0>0|1|1|3" />
+        <i3dMapping id="dynamicMountAttacher3" node="0>0|1|2|3" />
         <i3dMapping id="Connector1" node="0>0|1|0" />
         <i3dMapping id="Connector2" node="0>0|1|1" />
         <i3dMapping id="Connector3" node="0>0|1|2" />
-        <i3dMapping id="cutterLockNode" node="0>0|1|0|2" />
+        <i3dMapping id="cutterLockNode1" node="0>0|1|0|2" />
+        <i3dMapping id="cutterLockNode2" node="0>0|1|1|2" />
+        <i3dMapping id="cutterLockNode3" node="0>0|1|2|2" />
         <i3dMapping id="moveTrigger1" node="1>0" />
         <i3dMapping id="moveTrigger2" node="1>1" />
         <i3dMapping id="moveTrigger3" node="1>2" />

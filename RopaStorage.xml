@@ -24,15 +24,37 @@
         <filename>placeable/RopaStorage.i3d</filename>
         <canBeRenamed>true</canBeRenamed>
     </base>
-    
-    <clearAreas />
-    
-    <leveling requireLeveling="false" />
+
+    <placement useRandomYRotation="false" useManualYRotation="true" >
+        <testAreas>
+            <testArea startNode="testArea1Start" endNode="testArea1End" />
+        </testAreas>
+
+        <sounds>
+            <place template="smallImp" />
+        </sounds>
+    </placement>
+
+    <clearAreas>
+        <clearArea startNode="clearAreaStart" widthNode="clearAreaWidth" heightNode="clearAreaHeight"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="1" maxSlope="60" maxEdgeAngle="60" >
+        <levelAreas>
+            <levelArea startNode="levelingAreaStart" widthNode="levelingAreaWidth" heightNode="levelingAreaHeight" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
 	
     <indoorAreas />
-	
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+    </tipOcclusionUpdateAreas>
+
     <ai>
-        <updateAreas />
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+        </updateAreas>
     </ai>
   
     <animatedObjects>		
@@ -124,14 +146,24 @@
         <i3dMapping id="cutterLockNode1" node="0>1|0|2" />
         <i3dMapping id="cutterLockNode2" node="0>1|1|2" />
         <i3dMapping id="cutterLockNode3" node="0>1|2|2" />
-        <i3dMapping id="moveTrigger1" node="0>3|0|0" />
-        <i3dMapping id="moveTrigger2" node="0>3|1|0" />
-        <i3dMapping id="moveTrigger3" node="0>3|2|0" />
-        <i3dMapping id="infoTrigger" node="0>3|3" />
-        <i3dMapping id="light1" node="0>2|0|0" />
-        <i3dMapping id="light2" node="0>2|0|1" />
-        <i3dMapping id="light3" node="0>2|0|2" />
-        <i3dMapping id="realLightsLow" node="0>2|2" />
-        <i3dMapping id="realLightsHigh" node="0>2|1" />
+        <i3dMapping id="clearAreaStart" node="0>2" />
+        <i3dMapping id="clearAreaHeight" node="0>2|0" />
+        <i3dMapping id="clearAreaWidth" node="0>2|1" />
+        <i3dMapping id="levelingAreaStart" node="0>3" />
+        <i3dMapping id="levelingAreaHeight" node="0>3|0" />
+        <i3dMapping id="levelingAreaWidth" node="0>3|1" />
+        <i3dMapping id="light1" node="0>4|0|0" />
+        <i3dMapping id="light2" node="0>4|0|1" />
+        <i3dMapping id="light3" node="0>4|0|2" />
+        <i3dMapping id="realLightsLow" node="0>4|2" />
+        <i3dMapping id="realLightsHigh" node="0>4|1" />
+        <i3dMapping id="moveTrigger1" node="0>5|0|0" />
+        <i3dMapping id="moveTrigger2" node="0>5|1|0" />
+        <i3dMapping id="moveTrigger3" node="0>5|2|0" />
+        <i3dMapping id="infoTrigger" node="0>5|3" />
+        <i3dMapping id="testArea1Start" node="0>7|0" />
+        <i3dMapping id="testArea1End" node="0>7|0|0" />
+        <i3dMapping id="tipOcclusionUpdateArea1Start" node="0>8|0" />
+        <i3dMapping id="tipOcclusionUpdateArea1End" node="0>8|0|0" />
     </i3dMappings>
 </placeable>

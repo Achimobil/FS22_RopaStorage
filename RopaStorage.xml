@@ -102,9 +102,7 @@
 
         <sharedLight filename="$data/shared/assets/lights/terraLed/fluorescentTube50W.xml" linkNode="light1" groupIndex="1"/>
         <sharedLight filename="$data/shared/assets/lights/terraLed/fluorescentTube50W.xml" linkNode="light2" groupIndex="1"/>
-
-        <!-- <lightShape node="interiorDay" groupIndex="1"/> -->
-        <!-- <lightShape node="interiorDayLOD" groupIndex="1"/> -->
+        <sharedLight filename="$data/shared/assets/lights/terraLed/spotlight20W.xml" linkNode="light3" groupIndex="1"/>
 
         <realLights>
             <low>
@@ -132,6 +130,7 @@
         <i3dMapping id="infoTrigger" node="0>3|3" />
         <i3dMapping id="light1" node="0>2|0|0" />
         <i3dMapping id="light2" node="0>2|0|1" />
+        <i3dMapping id="light3" node="0>2|0|2" />
         <i3dMapping id="realLightsLow" node="0>2|2" />
         <i3dMapping id="realLightsHigh" node="0>2|1" />
     </i3dMappings>

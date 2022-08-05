@@ -25,10 +25,6 @@
         <canBeRenamed>true</canBeRenamed>
     </base>
     
-    <!-- <bigDisplays> -->
-        <!-- <bigDisplay upperLeftNode="0>1|0" height="2.1" width="1.85" size="0.11" color="0 0.9 0 1"></bigDisplay> -->
-    <!-- </bigDisplays> -->
-    
     <clearAreas />
     
     <leveling requireLeveling="false" />
@@ -100,6 +96,25 @@
     </dynamicMountAttacherPlacables>
     
     <infoTrigger triggerNode="infoTrigger" />
+
+    <lights>
+        <group weatherRequiredFlags="NIGHT" />
+
+        <sharedLight filename="$data/shared/assets/lights/terraLed/fluorescentTube50W.xml" linkNode="light1" groupIndex="1"/>
+        <sharedLight filename="$data/shared/assets/lights/terraLed/fluorescentTube50W.xml" linkNode="light2" groupIndex="1"/>
+
+        <!-- <lightShape node="interiorDay" groupIndex="1"/> -->
+        <!-- <lightShape node="interiorDayLOD" groupIndex="1"/> -->
+
+        <realLights>
+            <low>
+                <light node="realLightsLow" groupIndex="1"/>
+            </low>
+            <high>
+                <light node="realLightsHigh" groupIndex="1"/>
+            </high>
+        </realLights>
+    </lights>
     
     <i3dMappings>
         <i3dMapping id="dynamicMountAttacher1" node="0>1|0|3" />
@@ -111,9 +126,13 @@
         <i3dMapping id="cutterLockNode1" node="0>1|0|2" />
         <i3dMapping id="cutterLockNode2" node="0>1|1|2" />
         <i3dMapping id="cutterLockNode3" node="0>1|2|2" />
-        <i3dMapping id="moveTrigger1" node="0>2|0|0" />
-        <i3dMapping id="moveTrigger2" node="0>2|1|0" />
-        <i3dMapping id="moveTrigger3" node="0>2|2|0" />
-        <i3dMapping id="infoTrigger" node="0>2|3" />
+        <i3dMapping id="moveTrigger1" node="0>3|0|0" />
+        <i3dMapping id="moveTrigger2" node="0>3|1|0" />
+        <i3dMapping id="moveTrigger3" node="0>3|2|0" />
+        <i3dMapping id="infoTrigger" node="0>3|3" />
+        <i3dMapping id="light1" node="0>2|0|0" />
+        <i3dMapping id="light2" node="0>2|0|1" />
+        <i3dMapping id="realLightsLow" node="0>2|2" />
+        <i3dMapping id="realLightsHigh" node="0>2|1" />
     </i3dMappings>
 </placeable>

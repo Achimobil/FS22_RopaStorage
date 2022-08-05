@@ -46,8 +46,8 @@
             <Shape shapeId="4" name="Cube.010" translation="-1.1 4.45 2.60881" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="87" materialIds="2" castsShadows="true" receiveShadows="true"/>
           </TransformGroup>
           <TransformGroup name="rightLane" rotation="-6.83019e-06 -0 0" clipDistance="200" nodeId="88">
-            <Shape shapeId="4" name="Cube.002" translation="-1.1 8.05 -2.60881" rotation="-180 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="89" materialIds="2" castsShadows="true" receiveShadows="true"/>
-            <Shape shapeId="5" name="Cube.004" translation="2.5 3.9875 -2.60881" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="90" materialIds="1" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="5" name="Cube.001" translation="2.5 3.9875 -2.60881" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="89" materialIds="2" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="4" name="Cube.002" translation="-1.1 8.05 -2.60881" rotation="-180 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="90" materialIds="2" castsShadows="true" receiveShadows="true"/>
             <Shape shapeId="4" name="Cube.005" translation="-1.1 4.55 -2.60881" rotation="-180 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="91" materialIds="2" castsShadows="true" receiveShadows="true"/>
             <Shape shapeId="4" name="Cube.007" translation="-1.1 1.05 -2.60881" rotation="-180 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="92" materialIds="2" castsShadows="true" receiveShadows="true"/>
             <Shape shapeId="6" name="Cube.009" translation="-1.3 3.9875 -2.60881" rotation="-6.83019e-06 -0 0" kinematic="true" collisionMask="2109442" clipDistance="200" nodeId="93" materialIds="2" castsShadows="true" receiveShadows="true"/>

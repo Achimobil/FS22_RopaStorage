@@ -33,6 +33,10 @@ function DynamicMountAttacherPlacable.registerFunctions(placeableType)
 	SpecializationUtil.registerFunction(placeableType, "getMyMountAttacher", DynamicMountAttacherPlacable.getMyMountAttacher)
 end
 
+function DynamicMountAttacherPlacable.registerOverwrittenFunctions(placeableType)
+	SpecializationUtil.registerOverwrittenFunction(placeableType, "updateInfo", DynamicMountAttacherPlacable.updateInfo)
+end
+
 function DynamicMountAttacherPlacable.registerEventListeners(placeableType)
 	SpecializationUtil.registerEventListener(placeableType, "onLoad", DynamicMountAttacherPlacable)
 	SpecializationUtil.registerEventListener(placeableType, "onDelete", DynamicMountAttacherPlacable)
@@ -451,4 +455,38 @@ function DynamicMountAttacherPlacable:onPreAttachImplement(object, inputJointDes
             end
 		end
 	end
+end
+
+function DynamicMountAttacherPlacable:updateInfo(superFunc, infoTable)
+    local spec = self.spec_dynamicMountAttacherPlacable;
+
+	local owningFarm = g_farmManager:getFarmById(self:getOwnerFarmId())
+
+	table.insert(infoTable, {
+		title = g_i18n:getText("fieldInfo_ownedBy"),
+		text = owningFarm.name
+	})
+        
+    for index, myMountAttacher in pairs(spec.myMountAttacherList) do
+        local text = g_i18n:getText("bigDisplay_empty")
+        for object, _ in pairs(spec.dynamicMountedObjects) do
+            if object.myMountAttacher ~= nil and object.myMountAttacher == myMountAttacher then
+                text = object:getName();
+    
+    -- print("object");
+    -- DebugUtil.printTableRecursively(object,"_",0,2);
+            end
+        end
+        
+        table.insert(infoTable, {
+            title = g_i18n:getText("bigDisplay_attacher") .. " " .. tostring(index),
+            text = text;
+        })
+    end
+    -- if (spec.loadingStationToUse ~= nil) then
+        -- table.insert(infoTable, {
+            -- title = g_i18n:getText("bigDisplay_connected_with"),
+            -- text = spec.loadingStationToUse:getName();
+        -- })
+    -- end
 end

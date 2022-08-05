@@ -99,7 +99,8 @@
         </dynamicMountAttacherPlacable>
     </dynamicMountAttacherPlacables>
     
-    <!-- <infoTrigger triggerNode="1>0" /> -->
+    <infoTrigger triggerNode="infoTrigger" />
+    
     <i3dMappings>
         <i3dMapping id="dynamicMountAttacher1" node="0>1|0|3" />
         <i3dMapping id="dynamicMountAttacher2" node="0>1|1|3" />
@@ -113,5 +114,6 @@
         <i3dMapping id="moveTrigger1" node="0>2|0|0" />
         <i3dMapping id="moveTrigger2" node="0>2|1|0" />
         <i3dMapping id="moveTrigger3" node="0>2|2|0" />
+        <i3dMapping id="infoTrigger" node="0>2|3" />
     </i3dMappings>
 </placeable>

@@ -30,6 +30,7 @@
     <placeableTypes>
         <type name="ropaStorageType" parent="simplePlaceable" filename="$dataS/scripts/placeables/Placeable.lua">
             <specialization name="dynamicMountAttacher" />
+            <specialization name="infoTrigger" />
         </type>
     </placeableTypes>
     
@@ -44,27 +45,35 @@
         </text>
         <text name="rs_Connector1_open"> 
             <de>Fach 1 ausfahren</de>
-            <en>Open Stock 1</en>
+            <en>Open Slot 1</en>
         </text>
         <text name="rs_Connector2_open"> 
             <de>Fach 2 ausfahren</de>
-            <en>Open Stock 2</en>
+            <en>Open Slot 2</en>
         </text>
         <text name="rs_Connector3_open"> 
             <de>Fach 3 ausfahren</de>
-            <en>Open Stock 3</en>
+            <en>Open Slot 3</en>
         </text>
         <text name="rs_Connector1_close"> 
             <de>Fach 1 einfahren</de>
-            <en>Close Stock 1</en>
+            <en>Close Slot 1</en>
         </text>
         <text name="rs_Connector2_close"> 
             <de>Fach 2 einfahren</de>
-            <en>Close Stock 2</en>
+            <en>Close Slot 2</en>
         </text>
         <text name="rs_Connector3_close"> 
             <de>Fach 3 einfahren</de>
-            <en>Close Stock 3</en>
+            <en>Close Slot 3</en>
+        </text>
+        <text name="bigDisplay_empty"> 
+            <de>leer</de>
+            <en>empty</en>
+        </text>
+        <text name="bigDisplay_attacher"> 
+            <de>Fach</de>
+            <en>Slot</en>
         </text>
     </l10n>
 </modDesc>

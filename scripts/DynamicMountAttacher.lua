@@ -1,4 +1,27 @@
+--[[
+Copyright (C) Achimobil 2022
+
+Author: Achimobil
+Date: 06.08.2022
+Version: 0.1.0.0
+
+Contact:
+https://discord.gg/Va7JNnEkcW
+
+History:
+V 0.1.0.0 @ 06.08.2022 - First published Version
+
+Important:
+Free for use in other mods - no permission needed, only provide my name.
+No changes are to be made to this script without permission from Achimobil.
+
+Frei verwendbar - keine erlaubnis nötig, Namensnennung im Mod erforderlich.
+An diesem Skript dürfen ohne Genehmigung von Achimobil keine Änderungen vorgenommen werden.
+]]
+
 DynamicMountAttacherPlacable = {
+    Version = "0.1.0.0",
+    Name = "DynamicMountAttacherPlacable",
 	prerequisitesPresent = function (specializations)
 		return true
 	end,
@@ -18,6 +41,7 @@ DynamicMountAttacherPlacable = {
 		schema:setXMLSpecializationType()
 	end
 }
+print(g_currentModName .. " - init " .. DynamicMountAttacherPlacable.Name .. "(Version: " .. DynamicMountAttacherPlacable.Version .. ")");
 
 function DynamicMountAttacherPlacable.registerFunctions(placeableType)
 	SpecializationUtil.registerFunction(placeableType, "writeDynamicMountObjectsToStream", DynamicMountAttacherPlacable.writeDynamicMountObjectsToStream)

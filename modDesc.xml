@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="67">
     <author>Achimobil</author>
-    <version>0.2.0.0</version>
+    <version>0.3.0.0</version>
     <title>
         <de>Ropa Schneidwerkslager</de>
         <en>Ropa Cutter Storage</en>
@@ -11,13 +11,19 @@
             <![CDATA[Ein Schneidwerkslager für die Ropa 4m und für nichts anderes.
 
 Die Scheidwerke attachen und können nur mit einem Ropa wieder aufgenommen werden.
-Sie fallen nicht runter. Wenn andere Scheidwerke eingehängt werden kann es wie bei den Schneidwerkswagen dazu führen, dass dieses zurückgesetzt werden muss.]]>
+Sie fallen nicht runter. Wenn andere Scheidwerke eingehängt werden kann es wie bei den Schneidwerkswagen dazu führen, dass dieses zurückgesetzt werden muss.
+
+Changelog 0.3.0.0
+- Sync Probleme auf Dedi behoben]]>
         </de>
         <en>
             <![CDATA[A cutter storage for the Ropa 4m and for nothing else.
 
 The cutting units attache and can only be picked up again with a Ropa.
-They do not fall down. If other cutting units are hooked in, it may be necessary to reset the cutting unit, as with the cutting unit carriages.]]>
+They do not fall down. If other cutting units are hooked in, it may be necessary to reset the cutting unit, as with the cutting unit carriages.
+
+Changelog 0.3.0.0
+- Solve sync problems on Dedi]]>
         </en>
     </description>
     <multiplayer supported="true"/>

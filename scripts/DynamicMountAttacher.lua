@@ -10,6 +10,7 @@ https://discord.gg/Va7JNnEkcW
 
 History:
 V 0.1.0.0 @ 06.08.2022 - First published Version
+V 0.2.0.0 @ 13.08.2022 - solve MP sync problems
 
 Important:
 Free for use in other mods - no permission needed, only provide my name.
@@ -20,7 +21,7 @@ An diesem Skript dürfen ohne Genehmigung von Achimobil keine Änderungen vorgen
 ]]
 
 DynamicMountAttacherPlacable = {
-    Version = "0.1.0.0",
+    Version = "0.2.0.0",
     Name = "DynamicMountAttacherPlacable",
 	prerequisitesPresent = function (specializations)
 		return true
@@ -127,6 +128,7 @@ function DynamicMountAttacherPlacable:onLoad(savegame)
         end
 
         myMountAttacher.pendingDynamicMountObjects = {}
+        myMountAttacher.mountedName = ""
         
         table.insert(spec.myMountAttacherList, myMountAttacher);
                 
@@ -168,7 +170,9 @@ function DynamicMountAttacherPlacable:onReadUpdateStream(streamId, timestamp, co
 		if streamReadBool(streamId) then
 			local sum = self:readDynamicMountObjectsFromStream(streamId, spec.dynamicMountedObjects)
 
-			self:readDynamicMountObjectsFromStream2(streamId, spec.myMountAttacherList)
+            for attacherIndex, myMountAttacher in pairs(spec.myMountAttacherList) do
+                self:readDynamicMountObjectsFromStream2(streamId, myMountAttacher)
+            end
 		end
 	end
 end
@@ -178,9 +182,10 @@ function DynamicMountAttacherPlacable:onWriteUpdateStream(streamId, connection, 
 		local spec = self.spec_dynamicMountAttacherPlacable
 
 		if streamWriteBool(streamId, bitAND(dirtyMask, spec.dynamicMountedObjectsDirtyFlag) ~= 0) then
-			self:writeDynamicMountObjectsToStream(streamId, spec.dynamicMountedObjects, 0)
+			self:writeDynamicMountObjectsToStream(streamId, spec.dynamicMountedObjects, "")
+            
             for attacherIndex, myMountAttacher in pairs(spec.myMountAttacherList) do
-                self:writeDynamicMountObjectsToStream(streamId, myMountAttacher.pendingDynamicMountObjects, attacherIndex)
+                self:writeDynamicMountObjectsToStream(streamId, myMountAttacher.pendingDynamicMountObjects, myMountAttacher.mountedName)
             end
 		end
 	end
@@ -230,14 +235,17 @@ function DynamicMountAttacherPlacable:onUpdate(dt, isActiveForInput, isActiveFor
                         local couldMount = object:mountDynamic(self, trigger.rootNode, objectJoint, spec.mountType, spec.forceAcceleration)
 
                         if couldMount then
+                            myMountAttacher.mountedName = object:getName();
                             object.additionalDynamicMountJointNode = objectJoint
 
                             self:addDynamicMountedObject(object)
                         else
+                            myMountAttacher.mountedName = "";
                             delete(objectJoint)
                         end
                     else
                         myMountAttacher.pendingDynamicMountObjects[object] = nil
+                        myMountAttacher.mountedName = "";
 
                         self:raiseDirtyFlags(spec.dynamicMountedObjectsDirtyFlag)
                     end
@@ -268,9 +276,6 @@ end
 
 function DynamicMountAttacherPlacable:addDynamicMountedObject(object)
 	local spec = self.spec_dynamicMountAttacherPlacable
-
--- print("object.myMountAttacher")
--- DebugUtil.printTableRecursively(object.myMountAttacher,"_",0,2)
 
 	if spec.dynamicMountedObjects[object] == nil then
 		spec.dynamicMountedObjects[object] = object
@@ -308,11 +313,13 @@ function DynamicMountAttacherPlacable:removeDynamicMountedObject(object, isDelet
 	self:raiseDirtyFlags(spec.dynamicMountedObjectsDirtyFlag)
 end
 
-function DynamicMountAttacherPlacable:writeDynamicMountObjectsToStream(streamId, objects, attacherIndex)
+function DynamicMountAttacherPlacable:writeDynamicMountObjectsToStream(streamId, objects, mountedName)
 	local spec = self.spec_dynamicMountAttacherPlacable
 	local num = math.min(table.size(objects), spec.maxNumObjectsToSend)
 
+    -- print("write mountedName: " .. tostring(mountedName));
 	streamWriteUIntN(streamId, num, spec.numObjectBits)
+    streamWriteString(streamId, mountedName)
 
 	local objectIndex = 0
 
@@ -320,7 +327,6 @@ function DynamicMountAttacherPlacable:writeDynamicMountObjectsToStream(streamId,
 		objectIndex = objectIndex + 1
 
 		if num >= objectIndex then
-			streamWriteInt32(streamId, attacherIndex)
 			NetworkUtil.writeNodeObject(streamId, object)
 		else
 			Logging.xmlWarning(self.xmlFile, "Not enough bits to send all mounted objects. Please increase '%s'", "placeable.dynamicMountAttacherPlacables.dynamicMountAttacherPlacable(?)#numObjectBits")
@@ -328,22 +334,24 @@ function DynamicMountAttacherPlacable:writeDynamicMountObjectsToStream(streamId,
 	end
 end
 
-function DynamicMountAttacherPlacable:readDynamicMountObjectsFromStream2(streamId, myMountAttacherList)
+function DynamicMountAttacherPlacable:readDynamicMountObjectsFromStream2(streamId, myMountAttacher)
 	local spec = self.spec_dynamicMountAttacherPlacable
+    
 	local sum = streamReadUIntN(streamId, spec.numObjectBits)
+    local mountedName = streamReadString(streamId)
+    -- print("read2 mountedName: " .. tostring(mountedName));
 
-    for attacherIndex, myMountAttacher in pairs(myMountAttacherList) do
-        for k, _ in pairs(myMountAttacher.pendingDynamicMountObjects) do
-            myMountAttacher.pendingDynamicMountObjects[k] = nil
-        end
-	end
+    myMountAttacher.mountedName = mountedName;
+    for k, _ in pairs(myMountAttacher.pendingDynamicMountObjects) do
+        myMountAttacher.pendingDynamicMountObjects[k] = nil
+    end
 
 	for _ = 1, sum do
-        local attacherIndex = streamReadInt32(streamId)
 		local object = NetworkUtil.readNodeObject(streamId)
 
 		if object ~= nil then
-			myMountAttacherList[attacherIndex].pendingDynamicMountObjects[object] = object
+			myMountAttacher.pendingDynamicMountObjects[object] = object
+			myMountAttacher.mountedName = mountedName
 		end
 	end
 
@@ -353,13 +361,14 @@ end
 function DynamicMountAttacherPlacable:readDynamicMountObjectsFromStream(streamId, objects)
 	local spec = self.spec_dynamicMountAttacherPlacable
 	local sum = streamReadUIntN(streamId, spec.numObjectBits)
+    local mountedName = streamReadString(streamId)
+    -- print("read mountedName: " .. tostring(mountedName));
 
 	for k, _ in pairs(objects) do
 		objects[k] = nil
 	end
 
 	for _ = 1, sum do
-        local attacherIndex = streamReadInt32(streamId)
 		local object = NetworkUtil.readNodeObject(streamId)
 
 		if object ~= nil then
@@ -490,16 +499,12 @@ function DynamicMountAttacherPlacable:updateInfo(superFunc, infoTable)
 		title = g_i18n:getText("fieldInfo_ownedBy"),
 		text = owningFarm.name
 	})
-        
+    
     for index, myMountAttacher in pairs(spec.myMountAttacherList) do
         local text = g_i18n:getText("bigDisplay_empty")
-        for object, _ in pairs(spec.dynamicMountedObjects) do
-            if object.myMountAttacher ~= nil and object.myMountAttacher == myMountAttacher then
-                text = object:getName();
-    
-    -- print("object");
-    -- DebugUtil.printTableRecursively(object,"_",0,2);
-            end
+        
+        if myMountAttacher.mountedName ~= nil and myMountAttacher.mountedName ~= "" then
+            text = myMountAttacher.mountedName;
         end
         
         table.insert(infoTable, {
@@ -507,10 +512,4 @@ function DynamicMountAttacherPlacable:updateInfo(superFunc, infoTable)
             text = text;
         })
     end
-    -- if (spec.loadingStationToUse ~= nil) then
-        -- table.insert(infoTable, {
-            -- title = g_i18n:getText("bigDisplay_connected_with"),
-            -- text = spec.loadingStationToUse:getName();
-        -- })
-    -- end
 end

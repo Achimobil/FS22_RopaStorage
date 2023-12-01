@@ -1,33 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<modDesc descVersion="67">
+<modDesc descVersion="79">
     <author>Achimobil</author>
-    <version>0.3.0.0</version>
+    <version>1.0.0.0</version>
     <title>
-        <de>Ropa Schneidwerkslager</de>
-        <en>Ropa Cutter Storage</en>
+        <de>Ropa 4m Schneidwerkslager</de>
+        <en>Ropa 4m Cutter Storage</en>
     </title>
     <description>
         <de>
-            <![CDATA[Ein Schneidwerkslager für die Ropa 4m und für nichts anderes.
+            <![CDATA[Ein Schneidwerkslager für die 3 Ropa 4m und für nichts anderes.
 
 Die Scheidwerke attachen und können nur mit einem Ropa wieder aufgenommen werden.
 Sie fallen nicht runter. Wenn andere Scheidwerke eingehängt werden kann es wie bei den Schneidwerkswagen dazu führen, dass dieses zurückgesetzt werden muss.
 
-Changelog 0.3.0.0
-- Sync Probleme auf Dedi behoben]]>
+Das enthaltene Skript für Schneidwerke an Gebäude zu hängen darf ungeändert von jedem Modder kopiert und benutzt werden um eigene Schneidwerkslager zu erstellen.
+
+Fehler und verbesserungsvorschläge gerne melden im <a href="https://github.com/Achimobil/FS22_RopaStorage">GitHub</a>
+
+Upload auf anderen Seiten nur durch mich selbst, Verlinkung nur mit Original Downloadlink. KEIN Ersatzlink!
+Das verändern oder erneutes hochladen, ob ganz oder in Teilen ist nicht gestattet!
+]]>
         </de>
         <en>
-            <![CDATA[A cutter storage for the Ropa 4m and for nothing else.
+            <![CDATA[A cutter storage for the 3 Ropa 4m and for nothing else.
 
 The cutting units attache and can only be picked up again with a Ropa.
 They do not fall down. If other cutting units are hooked in, it may be necessary to reset the cutting unit, as with the cutting unit carriages.
 
-Changelog 0.3.0.0
-- Solve sync problems on Dedi]]>
+The included script for attaching cutting units to buildings may be copied unmodified by any modder and used to create their own cutting unit storage.
+
+Please report bugs and suggestions for improvement in <a href="https://github.com/Achimobil/FS22_RopaStorage">GitHub</a>
+
+Upload on other sites only by myself, linking only with original download link. NO substitute link!
+Modifying and re-uploading in whole or in part is not allowed!
+]]>
         </en>
     </description>
     <multiplayer supported="true"/>
-    <iconFilename>icon.dds</iconFilename>
+    <iconFilename>icon_RopaStorage.dds</iconFilename>
     <storeItems>
         <storeItem xmlFilename="RopaStorage.xml"/>
     </storeItems>
